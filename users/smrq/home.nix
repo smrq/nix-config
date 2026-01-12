@@ -27,6 +27,7 @@ in
 
   programs = {
     home-manager.enable = true;
+
     git = {
       enable = true;
 
@@ -41,6 +42,19 @@ in
         amend = "commit --amend --no-edit";
         l = "log --oneline --graph --decorate --all";
       };
+    };
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      shellAliases = {
+        bw-ssh = "bw get item f8dddfac-3cf9-47b5-8009-b3d00170890c | jq -r '.sshKey.privateKey' | ssh-add -";
+        ll = "ls -la";
+        update = "sudo nixos-rebuild switch --flake .";
+      };
+      history.size = 10000;
     };
   };
 
