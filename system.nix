@@ -23,6 +23,8 @@
     "flakes"
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     curl
     git
@@ -30,6 +32,7 @@
     jq
     vim
     wget
+    which
   ];
 
   environment.variables = {

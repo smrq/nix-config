@@ -16,13 +16,15 @@ in
     homeDirectory = "/home/smrq";
     stateVersion = "25.11";
     packages = with pkgs; [
-      fastfetch
-      jq
+      bitwarden-cli
+      bws
       eza
+      fastfetch
       fzf
-      which
       nixfmt-rfc-style
     ];
+
+
   };
 
   programs = {
