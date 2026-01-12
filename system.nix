@@ -24,10 +24,17 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    curl
+    git
+    htop
+    jq
     vim
+    wget
   ];
 
-  environment.variables.EDITOR = "vim";
+  environment.variables = {
+    EDITOR = "vim";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

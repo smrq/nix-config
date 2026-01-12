@@ -1,4 +1,8 @@
 {
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -7,6 +11,11 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    podman-compose
+    podman-tui
+  ];
 
   networking = {
     hostName = "honeyb";
@@ -32,5 +41,15 @@
     };
 
     openssh.enable = true;
+  };
+
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      autoPrune.enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 }
