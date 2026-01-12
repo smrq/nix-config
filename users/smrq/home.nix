@@ -23,17 +23,19 @@ in
       fzf
       nixfmt-rfc-style
     ];
-
-
   };
 
   programs = {
     home-manager.enable = true;
-    zsh.enable = true;
     git = {
       enable = true;
-      settings.user.name = "Greg Smith";
+
       settings.user.email = "smrq@smrq.net";
+      settings.user.name = "Greg Smith";
+      #settings.commit.gpgsign = true;
+      #settings.gpg.format = "ssh";
+      #settings.user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3ORdArlT3Dya0q/lgJ4pnrN84oeglS9D7omApOGtMX";
+
       settings.init.defaultBranch = "main";
       settings.alias = {
         amend = "commit --amend --no-edit";
