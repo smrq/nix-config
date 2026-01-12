@@ -51,5 +51,16 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+
+    oci-containers = {
+      backend = "podman";
+      containers = {
+        actual = {
+          image = "ghcr.io/actualbudget/actual:latest";
+          autoStart = true;
+          ports = [ "5006:5006" ];
+        };
+      };
+    };
   };
 }
