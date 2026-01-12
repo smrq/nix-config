@@ -19,6 +19,7 @@
 
   networking = {
     hostName = "honeyb";
+    firewall.allowedTCPPorts = [ 22 80 443 ];
     wireless = {
       enable = true;
       networks = {
@@ -37,6 +38,17 @@
       publish = {
         enable = true;
         addresses = true;
+      };
+    };
+
+    caddy = {
+      enable = true;
+      virtualHosts = {
+        "honeyb.local" = {
+          extraConfig = ''
+            reverse_proxy http://localhost:5006
+          '';
+        };
       };
     };
 
