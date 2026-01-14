@@ -22,6 +22,7 @@ in
       fastfetch
       fzf
       nixfmt-rfc-style
+      cifs-utils
     ];
   };
 
