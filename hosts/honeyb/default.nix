@@ -46,11 +46,20 @@
     caddy = {
       enable = true;
       virtualHosts = {
-        "honeyb.local" = {
+        "budget.smrq.net" = {
           extraConfig = ''
             reverse_proxy http://localhost:5006
           '';
         };
+      };
+    };
+
+    ddns-updater = {
+      enable = true;
+      environment = {
+        SERVER_ENABLED = "no";
+        CONFIG_FILEPATH = "/etc/ddns-updater/config.json";
+        PERIOD = "5m";
       };
     };
 
