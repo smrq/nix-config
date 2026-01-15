@@ -39,6 +39,23 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768505831,
+        "narHash": "sha256-U6C/vT9VQEMBCqm8cKDPt1ssW3n83RaiYD5YNShH8n8=",
+        "ref": "refs/heads/main",
+        "rev": "4814b058abfc06771c21a549eb5cfcae151ee316",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/smrq/nix-secrets.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/smrq/nix-secrets.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768028080,
@@ -72,8 +89,30 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs",
+        "sops-nix": "sops-nix",
         "vscode-server": "vscode-server"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768271704,
+        "narHash": "sha256-jJqlW8A3OZ5tYbXphF7U8P8g/3Cn8PPwPa4YlJ/9agg=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "691b8b6713855d0fe463993867291c158472fc6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {

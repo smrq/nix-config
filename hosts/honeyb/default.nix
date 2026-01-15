@@ -1,7 +1,12 @@
 {
+  config,
+  inputs,
   pkgs,
   ...
 }:
+let
+  secrets-path = builtins.toString inputs.nix-secrets;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -19,7 +24,11 @@
 
   networking = {
     hostName = "honeyb";
-    firewall.allowedTCPPorts = [ 22 80 443 ];
+    firewall.allowedTCPPorts = [
+      22
+      80
+      443
+    ];
     wireless = {
       enable = true;
       networks = {
@@ -30,7 +39,9 @@
     };
   };
 
-  programs.ssh.startAgent = true;
+  programs.ssh = {
+    startAgent = true;
+  };
 
   services = {
     avahi = {
@@ -58,7 +69,6 @@
       enable = true;
       environment = {
         SERVER_ENABLED = "no";
-        CONFIG_FILEPATH = "/etc/ddns-updater/config.json";
         PERIOD = "5m";
       };
     };
@@ -73,6 +83,49 @@
     samba = {
       enable = true;
     };
+  };
+
+  sops = {
+    defaultSopsFile = "${secrets-path}/secrets.yaml";
+    defaultSopsFormat = "yaml";
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+    secrets = {
+      "cloudflare/zone_identifier" = { };
+      "cloudflare/edit_zone_dns_token" = { };
+      "ssh_keys/smrq" = {
+        path = "/home/smrq/.ssh/id_ed25519";
+        mode = "0400";
+        owner = config.users.users.smrq.name;
+      };
+    };
+    templates = {
+      "ddns-updater-config.json" = {
+        content = ''
+          {
+            "settings": [{
+              "provider": "cloudflare",
+              "zone_identifier": "${config.sops.placeholder."cloudflare/zone_identifier"}",
+              "domain": "budget.smrq.net",
+              "ttl": 300,
+              "token": "${config.sops.placeholder."cloudflare/edit_zone_dns_token"}",
+              "ip_version": "ipv4",
+              "ipv6_suffix": ""
+            }]
+          }
+        '';
+      };
+    };
+  };
+
+  systemd.services.ddns-updater.serviceConfig = {
+    LoadCredential = "config.json:${config.sops.templates."ddns-updater-config.json".path}";
+    Environment = [
+      "CONFIG_FILEPATH=%d/config.json"
+    ];
   };
 
   virtualisation = {

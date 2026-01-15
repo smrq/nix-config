@@ -23,6 +23,8 @@ in
       fzf
       nixfmt-rfc-style
       cifs-utils
+      sops
+      ssh-to-age
     ];
   };
 
@@ -52,9 +54,8 @@ in
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        bw-ssh = "bw get item f8dddfac-3cf9-47b5-8009-b3d00170890c | jq -r '.sshKey.privateKey' | ssh-add -";
         ll = "ls -la";
-        update = "sudo nixos-rebuild switch --flake .";
+        update = "nixos-rebuild switch --sudo --flake .";
       };
       history.size = 10000;
     };
