@@ -18,9 +18,18 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    cifs-utils
     podman-compose
     podman-tui
   ];
+
+  fileSystems."/mnt/faerie" = {
+    device = "//manatree/faerie";
+    fsType = "cifs";
+    options = let
+      automountOpts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+    in ["${automountOpts},credentials=${config.sops.templates."smb-secrets-manatree".path}"];
+  };
 
   networking = {
     hostName = "honeyb";
@@ -96,6 +105,8 @@ in
     secrets = {
       "cloudflare/zone_identifier" = { };
       "cloudflare/edit_zone_dns_token" = { };
+      "smb/manatree/username" = { };
+      "smb/manatree/password" = { };
       "ssh_keys/smrq" = {
         path = "/home/smrq/.ssh/id_ed25519";
         mode = "0400";
@@ -116,6 +127,13 @@ in
               "ipv6_suffix": ""
             }]
           }
+        '';
+      };
+
+      "smb-secrets-manatree" = {
+        content = ''
+          username=${config.sops.placeholder."smb/manatree/username"}
+          password=${config.sops.placeholder."smb/manatree/password"}
         '';
       };
     };
