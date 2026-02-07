@@ -69,11 +69,13 @@ in
         "budget.smrq.net" = {
           extraConfig = ''
             reverse_proxy http://localhost:5006
+            tls internal
           '';
         };
         "sub.smrq.net" = {
           extraConfig = ''
             reverse_proxy http://localhost:4747
+            tls internal
           '';
         };
       };
