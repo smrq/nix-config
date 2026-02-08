@@ -19,16 +19,33 @@ in
 
   environment.systemPackages = with pkgs; [
     cifs-utils
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
     podman-compose
     podman-tui
   ];
 
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
   fileSystems."/mnt/faerie" = {
     device = "//manatree/faerie";
     fsType = "cifs";
-    options = let
-      automountOpts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-    in ["${automountOpts},credentials=${config.sops.templates."smb-secrets-manatree".path}"];
+    options =
+      let
+        automountOpts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      in
+      [ "${automountOpts},credentials=${config.sops.templates."smb-secrets-manatree".path}" ];
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+    ];
   };
 
   networking = {
@@ -72,6 +89,12 @@ in
             tls internal
           '';
         };
+        "media.smrq.net" = {
+          extraConfig = ''
+            reverse_proxy http://localhost:8096
+            tls internal
+          '';
+        };
         "sub.smrq.net" = {
           extraConfig = ''
             reverse_proxy http://localhost:4747
@@ -89,6 +112,10 @@ in
         # LOG_LEVEL = "debug";
         # LOG_CALLER = "short";
       };
+    };
+
+    jellyfin = {
+      enable = true;
     };
 
     openssh = {
@@ -123,31 +150,31 @@ in
       };
     };
     templates = {
-      "ddns-updater-config.json" = {
-        content = ''
-          {
-            "settings": [
-              {
-                "provider": "cloudflare",
-                "zone_identifier": "${config.sops.placeholder."cloudflare/zone_identifier"}",
-                "domain": "budget.smrq.net",
-                "ttl": 300,
-                "token": "${config.sops.placeholder."cloudflare/edit_zone_dns_token"}",
-                "ip_version": "ipv4",
-                "ipv6_suffix": ""
-              }, {
-                "provider": "cloudflare",
-                "zone_identifier": "${config.sops.placeholder."cloudflare/zone_identifier"}",
-                "domain": "sub.smrq.net",
-                "ttl": 300,
-                "token": "${config.sops.placeholder."cloudflare/edit_zone_dns_token"}",
-                "ip_version": "ipv4",
-                "ipv6_suffix": ""
-              }
-            ]
-          }
-        '';
-      };
+      "ddns-updater-config.json" =
+        let
+          domainSettings = domain: ''
+            {
+              "provider": "cloudflare",
+              "zone_identifier": "${config.sops.placeholder."cloudflare/zone_identifier"}",
+              "domain": "${domain}",
+              "ttl": 300,
+              "token": "${config.sops.placeholder."cloudflare/edit_zone_dns_token"}",
+              "ip_version": "ipv4",
+              "ipv6_suffix": ""
+            }
+          '';
+        in
+        {
+          content = ''
+            {
+              "settings": [
+                ${domainSettings "budget.smrq.net"},
+                ${domainSettings "media.smrq.net"},
+                ${domainSettings "sub.smrq.net"}
+              ]
+            }
+          '';
+        };
 
       "smb-secrets-manatree" = {
         content = ''
