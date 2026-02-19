@@ -1,4 +1,8 @@
 {
+  imports = [
+    ../../modules/sops.nix
+  ];
+
   users.users.smrq = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -18,6 +22,14 @@
       ];
     }
   ];
+
+  sops.secrets = {
+    "ssh_keys/smrq" = {
+      path = "/home/smrq/.ssh/id_ed25519";
+      mode = "0400";
+      owner = "smrq";
+    };
+  };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

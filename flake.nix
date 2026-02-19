@@ -41,6 +41,10 @@
           modules = [
             ./system.nix
             ./hosts/dryad
+            ./modules/dank.nix
+            ./modules/lan.nix
+            ./modules/wifi.nix
+            ./services/openssh.nix
             ./users/smrq
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
@@ -56,6 +60,14 @@
           modules = [
             ./system.nix
             ./hosts/honeyb
+            ./modules/lan.nix
+            ./modules/ssh-agent.nix
+            ./modules/wifi.nix
+            ./services/actual-budget.nix
+            ./services/gonic.nix
+            ./services/jellyfin.nix
+            ./services/openssh.nix
+            ./services/reverse-proxy.nix
             ./users/smrq
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops

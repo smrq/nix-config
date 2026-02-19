@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}: {
   programs.dms-shell = {
     enable = true;
 
