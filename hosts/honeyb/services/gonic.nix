@@ -1,7 +1,7 @@
 {
   imports = [
-    ../../modules/lan.nix
-    ../../modules/podman.nix
+    ../../../modules/lan.nix
+    ../../../modules/podman.nix
   ];
 
   virtualisation.oci-containers.containers.gonic = {

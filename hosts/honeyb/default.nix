@@ -4,10 +4,10 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./actual-budget.nix
-    ./gonic.nix
-    ./jellyfin.nix
-    ./reverse-proxy.nix
+    ./services/actual-budget.nix
+    ./services/gonic.nix
+    ./services/jellyfin.nix
+    ./services/reverse-proxy.nix
   ];
 
   boot.loader = {
