@@ -51,7 +51,7 @@ in
         eza
         fastfetch
         fzf
-        nixfmt-rfc-style
+        nixfmt
       ];
     };
 
