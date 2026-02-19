@@ -33,6 +33,21 @@
     }@inputs:
     {
       nixosConfigurations = {
+        dryad = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./system.nix
+            ./hosts/dryad
+            ./users/smrq
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            vscode-server.nixosModules.default
+          ];
+        };
+
         honeyb = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
