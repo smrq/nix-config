@@ -33,47 +33,49 @@
     }@inputs:
     {
       nixosConfigurations = {
-        dryad = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
+        dryad =
+          let
+            hostname = "dryad";
+            username = "smrq";
+          in
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs hostname username;
+            };
+            modules = [
+              ./system.nix
+              ./hosts/${hostname}
+              ./users/${username}
+              ./modules/dms.nix
+              ./modules/lan.nix
+              ./modules/openssh.nix
+              ./modules/vscode-server.nix
+              home-manager.nixosModules.home-manager
+            ];
           };
-          modules = [
-            ./system.nix
-            ./hosts/dryad
-            ./modules/dank.nix
-            ./modules/lan.nix
-            ./modules/wifi.nix
-            ./services/openssh.nix
-            ./users/smrq
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            vscode-server.nixosModules.default
-          ];
-        };
 
-        honeyb = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
+        honeyb =
+          let
+            hostname = "honeyb";
+            username = "smrq";
+          in
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs hostname username;
+            };
+            modules = [
+              ./system.nix
+              ./hosts/${hostname}
+              ./users/${username}
+              ./modules/lan.nix
+              ./modules/openssh.nix
+              ./modules/ssh-agent.nix
+              ./modules/vscode-server.nix
+              home-manager.nixosModules.home-manager
+            ];
           };
-          modules = [
-            ./system.nix
-            ./hosts/honeyb
-            ./modules/lan.nix
-            ./modules/ssh-agent.nix
-            ./modules/wifi.nix
-            ./services/actual-budget.nix
-            ./services/gonic.nix
-            ./services/jellyfin.nix
-            ./services/openssh.nix
-            ./services/reverse-proxy.nix
-            ./users/smrq
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            vscode-server.nixosModules.default
-          ];
-        };
       };
     };
 }

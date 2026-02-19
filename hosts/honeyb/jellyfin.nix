@@ -3,7 +3,7 @@
   ...
 }: {
   imports = [
-    ../modules/lan.nix
+    ../../modules/lan.nix
   ];
 
   environment.systemPackages = with pkgs; [

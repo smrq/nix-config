@@ -1,6 +1,6 @@
 {
   imports = [
-    ../modules/podman.nix
+    ../../modules/podman.nix
   ];
 
   virtualisation.oci-containers.containers.actual = {

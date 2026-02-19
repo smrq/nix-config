@@ -1,4 +1,7 @@
 {
+  hostname,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -8,5 +11,5 @@
     efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "dryad";
+  networking.hostName = hostname;
 }
