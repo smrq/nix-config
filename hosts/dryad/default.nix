@@ -10,6 +10,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/dank.nix
   ];
 
   boot.loader = {
@@ -44,10 +45,6 @@ in
         };
       };
     };
-  };
-
-  programs.ssh = {
-    startAgent = true;
   };
 
   services = {

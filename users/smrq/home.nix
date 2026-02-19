@@ -55,7 +55,7 @@ in
       syntaxHighlighting.enable = true;
       shellAliases = {
         ll = "ls -la";
-        update = "nixos-rebuild switch --sudo --flake .";
+        update = "nixos-rebuild switch --sudo --flake .#$(hostname)";
       };
       history.size = 10000;
     };
