@@ -81,7 +81,8 @@ in
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         shellAliases = {
-          ll = "ls -la";
+          ls = "eza";
+          ll = "eza -la";
           nixup = "nixos-rebuild switch --sudo --flake .#${hostname}";
           nixgc = "nix-collect-garbage -d";
         };
