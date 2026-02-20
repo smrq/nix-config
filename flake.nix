@@ -32,8 +32,6 @@
       ...
     }@inputs:
     let
-      hosts = import ./config/hosts.nix;
-
       mkNixOSConfigurations =
         {
           host,
@@ -62,12 +60,20 @@
         };
 
     in {
-      nixosConfigurations.${hosts.dryad.hostname} = mkNixOSConfigurations {
-        host = hosts.dryad;
+      nixosConfigurations.dryad = mkNixOSConfigurations {
+        host = {
+          hostname = "dryad";
+          username = "smrq";
+          arch = "x86_64-linux";
+        };
       };
 
-      nixosConfigurations.${hosts.honeyb.hostname} = mkNixOSConfigurations {
-        host = hosts.honeyb;
+      nixosConfigurations.honeyb = mkNixOSConfigurations {
+        host = {
+          hostname = "honeyb";
+          username = "smrq";
+          arch = "x86_64-linux";
+        };
       };
     };
 }
