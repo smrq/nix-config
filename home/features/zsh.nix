@@ -8,8 +8,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      ls = "eza";
-      ll = "eza -la";
+      ls = "eza --group-directories-first";
+      ll = "eza --group-directories-first -la";
       nixup = "nixos-rebuild switch --sudo --flake .#${hostname}";
       nixgc = "nix-collect-garbage -d";
     };
