@@ -47,6 +47,7 @@
               ./system.nix
               ./hosts/${hostname}
               ./users/${username}
+              ./modules/desktop.nix
               ./modules/dms.nix
               ./modules/lan.nix
               ./modules/openssh.nix
