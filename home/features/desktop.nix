@@ -7,6 +7,4 @@
     fuzzel
     neovim
   ];
-
-  programs.vscode.enable = true;
 }
