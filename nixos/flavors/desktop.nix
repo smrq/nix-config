@@ -10,7 +10,7 @@
     
     ../features/server/openssh.nix
 
-    ../features/discord.nix
+    ../features/desktop.nix
     ../features/dms.nix
   ];
 }
