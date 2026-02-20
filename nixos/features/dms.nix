@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+  ];
+
   environment.extraInit = ''
     if [ -z "$SSH_AUTH_SOCK" -a -n "$XDG_RUNTIME_DIR" ]; then
       export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
@@ -20,9 +24,7 @@
     enableSystemMonitoring = true;
   };
 
-  programs.niri = {
-    enable = true;
-  };
+  programs.niri.enable = true;
 
   services.displayManager.dms-greeter = {
     enable = true;
