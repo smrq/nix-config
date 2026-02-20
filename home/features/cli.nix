@@ -6,7 +6,6 @@
     bitwarden-cli
     bws
     eza
-    fastfetch
     fzf
     nixfmt
   ];
