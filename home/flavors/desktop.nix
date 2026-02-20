@@ -1,5 +1,6 @@
 {
   imports = [
+    ../features/catppuccin.nix
     ../features/cli.nix
     ../features/desktop.nix
     ../features/fonts.nix

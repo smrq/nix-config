@@ -1,8 +1,13 @@
 {
+  inputs,
   username,
   pkgs,
   ...
 }: {
+  imports = [
+    inputs.dms-plugin-registry.modules.default
+  ];
+
   environment.systemPackages = with pkgs; [
     xwayland-satellite
   ];

@@ -5,6 +5,13 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,9 +33,6 @@
     {
       nixpkgs,
       home-manager,
-      nix-secrets,
-      sops-nix,
-      vscode-server,
       ...
     }@inputs:
     let
@@ -51,6 +55,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
+                inherit inputs;
                 hostname = host.hostname;
                 username = host.username;
               };
