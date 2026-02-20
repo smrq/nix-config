@@ -1,15 +1,14 @@
 {
-  nix-secrets,
+  inputs,
   pkgs,
-  sops-nix,
   ...
 }:
 let
-  secrets-path = builtins.toString nix-secrets;
+  secrets-path = builtins.toString inputs.nix-secrets;
 in
 {
   imports = [
-    sops-nix.nixosModules.sops
+    inputs.sops-nix.nixosModules.sops
   ];
 
   environment.systemPackages = with pkgs; [

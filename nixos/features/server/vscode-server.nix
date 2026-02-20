@@ -1,8 +1,8 @@
 {
-  vscode-server,
+  inputs,
   ...
 }: {
   imports = [
-    vscode-server.nixosModules.default
+    inputs.vscode-server.nixosModules.default
   ];
 }
