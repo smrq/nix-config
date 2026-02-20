@@ -3,7 +3,7 @@
   ...
 }: {
   imports = [
-    ../../../modules/sops.nix
+    ../sops.nix
   ];
 
   networking.firewall.allowedTCPPorts = [

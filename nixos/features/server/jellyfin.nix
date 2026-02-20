@@ -3,7 +3,7 @@
   ...
 }: {
   imports = [
-    ../../../modules/lan.nix
+    ../lan/manatree.nix
   ];
 
   environment.systemPackages = with pkgs; [

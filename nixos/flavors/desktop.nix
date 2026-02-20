@@ -1,0 +1,15 @@
+{
+  imports = [
+    ../features/system/nix.nix
+    ../features/system/system.nix
+    ../features/system/users.nix
+    
+    ../features/lan/avahi.nix
+    ../features/lan/manatree.nix
+    ../features/lan/wifi.nix
+    
+    ../features/server/openssh.nix
+
+    ../features/dms.nix
+  ];
+}

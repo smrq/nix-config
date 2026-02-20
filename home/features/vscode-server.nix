@@ -1,8 +1,3 @@
-{
-  inputs,
-  username,
-  ...
-}:
 let
   vscode-server-tarball = fetchTarball {
     url = "https://github.com/nix-community/nixos-vscode-server/tarball/6d5f074e4811d143d44169ba4af09b20ddb6937d";
@@ -11,14 +6,8 @@ let
 in
 {
   imports = [
-    inputs.vscode-server.nixosModules.default
+    "${vscode-server-tarball}/modules/vscode-server/home.nix"
   ];
 
-  home-manager.users.${username} = {
-    imports = [
-      "${vscode-server-tarball}/modules/vscode-server/home.nix"
-    ];
-
-    services.vscode-server.enable = true;
-  };
+  services.vscode-server.enable = true;
 }

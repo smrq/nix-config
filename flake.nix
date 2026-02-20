@@ -2,81 +2,88 @@
   description = "NixOS configuration for smrq";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-secrets = {
-      url = "git+ssh://git@github.com/smrq/nix-secrets.git?shallow=1";
-      flake = false;
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
+
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+    sops-nix-stable = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+  
+    nix-secrets = {
+      url = "git+ssh://git@github.com/smrq/nix-secrets.git?shallow=1";
+      flake = false;
+    };
+
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs =
     {
-      nixpkgs,
-      home-manager,
       nix-secrets,
-      sops-nix,
       vscode-server,
       ...
     }@inputs:
-    {
-      nixosConfigurations = {
-        dryad =
-          let
-            hostname = "dryad";
-            username = "smrq";
-          in
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = {
-              inherit inputs hostname username;
-            };
-            modules = [
-              ./system.nix
-              ./hosts/${hostname}
-              ./users/${username}
-              ./modules/desktop.nix
-              ./modules/dms.nix
-              ./modules/lan.nix
-              ./modules/openssh.nix
-              ./modules/vscode-server.nix
-              home-manager.nixosModules.home-manager
-            ];
-          };
+    let
+      hosts = import ./config/hosts.nix;
 
-        honeyb =
-          let
-            hostname = "honeyb";
-            username = "smrq";
-          in
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = {
-              inherit inputs hostname username;
-            };
-            modules = [
-              ./system.nix
-              ./hosts/${hostname}
-              ./users/${username}
-              ./modules/lan.nix
-              ./modules/openssh.nix
-              ./modules/ssh-agent.nix
-              ./modules/vscode-server.nix
-              home-manager.nixosModules.home-manager
-            ];
+      mkNixOSConfigurations =
+        {
+          host,
+          nixpkgs,
+          home-manager,
+          sops-nix,
+          modules ? [ ],
+        }:
+        nixpkgs.lib.nixosSystem {
+          system = host.arch;
+          specialArgs = {
+            inherit nix-secrets;
+            inherit sops-nix;
+            inherit vscode-server;
+            hostname = host.hostname;
+            username = host.username;
           };
+          modules = [
+            ./hosts/${host.hostname}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                hostname = host.hostname;
+                username = host.username;
+              };
+              home-manager.users."${host.username}" = import ./hosts/${host.hostname}/home.nix;
+            }
+          ] ++ modules;
+        };
+
+    in {
+      nixosConfigurations.${hosts.dryad.hostname} = mkNixOSConfigurations {
+        host = hosts.dryad;
+        nixpkgs = inputs.nixpkgs;
+        home-manager = inputs.home-manager;
+        sops-nix = inputs.sops-nix;
+      };
+
+      nixosConfigurations.${hosts.honeyb.hostname} = mkNixOSConfigurations {
+        host = hosts.honeyb;
+        nixpkgs = inputs.nixpkgs-stable;
+        home-manager = inputs.home-manager-stable;
+        sops-nix = inputs.sops-nix-stable;
       };
     };
 }

@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./sops.nix
+    ../sops.nix
   ];
   
   environment.systemPackages = with pkgs; [
@@ -21,30 +21,7 @@
       [ "${automountOpts},credentials=${config.sops.templates."smb-secrets-manatree".path}" ];
   };
 
-  networking.wireless = {
-    enable = true;
-    networks = {
-      "Hello Neighbor" = {
-        pskRaw = "1f7b7fe3777b373604cc2296105d338b05529aa5bad9b5d8bcdf902122905c17";
-      };
-    };
-  };
-
-  services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      nssmdns6 = true;
-      publish = {
-        enable = true;
-        addresses = true;
-      };
-    };
-
-    samba = {
-      enable = true;
-    };
-  };
+  services.samba.enable = true;
 
   sops = {
     secrets = {
