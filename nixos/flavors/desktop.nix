@@ -12,5 +12,7 @@
 
     ../features/desktop.nix
     ../features/dms.nix
+    ../features/dolphin.nix
+    ../features/fprintd.nix
   ];
 }

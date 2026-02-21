@@ -29,6 +29,8 @@
     enableSystemMonitoring = true;
   };
 
+  programs.dsearch.enable = true;
+
   programs.niri.enable = true;
 
   services.displayManager.dms-greeter = {

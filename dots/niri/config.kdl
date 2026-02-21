@@ -362,9 +362,10 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Space hotkey-overlay-title="Launcher" { spawn "fuzzel"; }
-    Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Firefox" { spawn "firefox"; }
+    Mod+Space hotkey-overlay-title="Launcher (fuzzel)" { spawn "fuzzel"; }
+    Mod+Return hotkey-overlay-title="Terminal (kitty)" { spawn "kitty"; }
+    Mod+B hotkey-overlay-title="Browser (firefox)" { spawn "firefox"; }
+    Mod+E hotkey-overlay-title="File Manager (dolphin)" { spawn "dolphin"; }
     Super+L hotkey-overlay-title="Lock the Screen" { spawn-sh "dms ipc call lock lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
