@@ -10,6 +10,7 @@
     
     ../features/server/openssh.nix
 
+    ../features/bluetooth.nix
     ../features/desktop.nix
     ../features/dms.nix
     ../features/dolphin.nix
