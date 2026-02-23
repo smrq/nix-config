@@ -1,9 +1,11 @@
 {
+  inputs,
   hostname,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ../../nixos/flavors/desktop.nix
   ];
 

@@ -20,6 +20,9 @@
       url = "git+ssh://git@github.com/smrq/nix-secrets.git?shallow=1";
       flake = false;
     };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
