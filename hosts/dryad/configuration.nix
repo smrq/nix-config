@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+    ./prevent-wake.nix
     ../../nixos/flavors/desktop.nix
   ];
 
