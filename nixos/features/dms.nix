@@ -39,4 +39,7 @@
     compositor.name = "niri";
     configHome = "/home/${username}";
   };
+
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
 }
