@@ -15,6 +15,8 @@
     ../features/server/reverse-proxy.nix
     ../features/server/vscode-server.nix
     
+    ../features/restic.nix
+    ../features/sops.nix
     ../features/ssh-agent.nix
   ];
 }

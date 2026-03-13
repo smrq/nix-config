@@ -15,6 +15,7 @@
     ../features/dms.nix
     ../features/dolphin.nix
     ../features/fprintd.nix
+    ../features/sops.nix
     ../features/stylix.nix
   ];
 }
