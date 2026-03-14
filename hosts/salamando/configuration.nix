@@ -1,13 +1,13 @@
 {
-  inputs,
   hostname,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-    ./prevent-wake.nix
-    ../../nixos/flavors/laptop.nix
+    ./file-systems.nix
+    ./graphics.nix
+    ./mouse.nix
+    ../../nixos/flavors/desktop.nix
   ];
 
   boot.loader = {

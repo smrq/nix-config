@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ../../home/flavors/laptop.nix
+    ../../home/flavors/desktop.nix
   ];
 
   home = {

@@ -87,5 +87,13 @@
           arch = "x86_64-linux";
         };
       };
+
+      nixosConfigurations.salamando = mkNixOSConfigurations {
+        host = {
+          hostname = "salamando";
+          username = "smrq";
+          arch = "x86_64-linux";
+        };
+      };
     };
 }
