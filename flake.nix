@@ -5,6 +5,10 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    azeron-linux = {
+      url = "./packages/azeron-linux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dms-plugin-registry = {
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +34,7 @@
     };
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -49,8 +54,7 @@
           system = host.arch;
           specialArgs = {
             inherit inputs;
-            hostname = host.hostname;
-            username = host.username;
+            inherit (host) arch hostname username;
           };
           modules = [
             ./hosts/${host.hostname}/configuration.nix
@@ -60,8 +64,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                hostname = host.hostname;
-                username = host.username;
+                inherit (host) arch hostname username;
               };
               home-manager.users."${host.username}" = import ./hosts/${host.hostname}/home.nix;
             }

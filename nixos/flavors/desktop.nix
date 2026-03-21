@@ -10,6 +10,7 @@
     
     ../features/server/openssh.nix
 
+    ../features/azeron.nix
     ../features/bluetooth.nix
     ../features/desktop.nix
     ../features/dms.nix
