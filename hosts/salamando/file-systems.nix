@@ -4,6 +4,7 @@
     fsType = "ntfs";
     options = [
       "ro"
+      "nofail"
     ];
   };
 
@@ -12,6 +13,7 @@
     fsType = "ntfs";
     options = [
       "ro"
+      "nofail"
     ];
   };
 }
