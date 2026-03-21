@@ -6,8 +6,9 @@
     ../features/fonts.nix
     ../features/git.nix
     ../features/home-manager.nix
+    ../features/hyprland.nix
     ../features/kitty.nix
-    ../features/niri.nix
+    # ../features/niri.nix
     ../features/stylix.nix
     ../features/vscode.nix
     ../features/zsh.nix
