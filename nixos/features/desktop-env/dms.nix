@@ -31,15 +31,7 @@
   };
 
   programs.dsearch.enable = true;
-
-  programs.niri.enable = true;
-
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "niri";
-    configHome = "/home/${username}";
-  };
-
+  
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
 }
