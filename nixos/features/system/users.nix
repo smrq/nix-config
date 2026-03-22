@@ -11,6 +11,7 @@ in
   ];
 
   users.users.${username} = {
+    description = username;
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [ public-key ];
