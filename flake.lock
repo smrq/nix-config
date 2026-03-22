@@ -361,7 +361,8 @@
         "noctalia-qs": "noctalia-qs",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "vscode-server": "vscode-server"
+        "vscode-server": "vscode-server",
+        "xpad": "xpad"
       }
     },
     "sops-nix": {
@@ -582,6 +583,22 @@
         "repo": "nixos-vscode-server",
         "type": "github"
       }
+    },
+    "xpad": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./packages/xpad",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/xpad",
+        "type": "path"
+      },
+      "parent": []
     }
   },
   "root": "root",
