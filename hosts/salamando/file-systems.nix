@@ -1,6 +1,6 @@
 {
   fileSystems."/mnt/win-c" = {
-    device = "/dev/nvme0n1p3";
+    device = "/dev/nvme1n1p3";
     fsType = "ntfs";
     options = [
       "ro"

@@ -12,6 +12,12 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
 
+    cursor = {
+      name = "Catppuccin-Frappe-Mauve-Cursors";
+      package = pkgs.catppuccin-cursors.frappeMauve;
+      size = 16;
+    };
+
     fonts = {
       sansSerif = {
         package = pkgs.inter;
