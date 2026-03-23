@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    inputs.xpad.nixosModules.xpad
+    inputs.xpad.nixosModules.default
   ];
 
   environment.systemPackages = [

@@ -18,6 +18,7 @@
     ../features/bluetooth.nix
     ../features/desktop.nix
     ../features/dolphin.nix
+    ../features/ffxiv.nix
     ../features/fprintd.nix
     ../features/gcr.nix
     ../features/sops.nix

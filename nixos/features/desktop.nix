@@ -7,7 +7,6 @@
     discord
     feishin
     spotify
-    xivlauncher
   ];
 
   programs.steam.enable = true;

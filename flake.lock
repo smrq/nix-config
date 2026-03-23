@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "advanced-combat-tracker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./packages/advanced-combat-tracker",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/advanced-combat-tracker",
+        "type": "path"
+      },
+      "parent": []
+    },
     "azeron-linux": {
       "inputs": {
         "nixpkgs": [
@@ -351,6 +367,7 @@
     },
     "root": {
       "inputs": {
+        "advanced-combat-tracker": "advanced-combat-tracker",
         "azeron-linux": "azeron-linux",
         "dms-plugin-registry": "dms-plugin-registry",
         "home-manager": "home-manager",
@@ -362,6 +379,7 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "vscode-server": "vscode-server",
+        "xivlauncher-rb": "xivlauncher-rb",
         "xpad": "xpad"
       }
     },
@@ -583,6 +601,17 @@
         "repo": "nixos-vscode-server",
         "type": "github"
       }
+    },
+    "xivlauncher-rb": {
+      "locked": {
+        "path": "./packages/xivlauncher-rb",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/xivlauncher-rb",
+        "type": "path"
+      },
+      "parent": []
     },
     "xpad": {
       "inputs": {

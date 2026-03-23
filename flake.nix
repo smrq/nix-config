@@ -5,6 +5,10 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    advanced-combat-tracker = {
+      url = "./packages/advanced-combat-tracker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     azeron-linux = {
       url = "./packages/azeron-linux";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +47,10 @@
     };
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xivlauncher-rb = {
+      url = "./packages/xivlauncher-rb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xpad = {
