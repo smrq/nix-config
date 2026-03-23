@@ -16,6 +16,7 @@
     ../features/desktop.nix
     ../features/dolphin.nix
     ../features/fprintd.nix
+    ../features/gcr.nix
     ../features/sops.nix
     ../features/stylix.nix
   ];
