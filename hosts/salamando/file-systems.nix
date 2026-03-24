@@ -1,6 +1,6 @@
 {
   fileSystems."/mnt/win-c" = {
-    device = "/dev/nvme1n1p3";
+    device = "/dev/disk/by-uuid/E2B2E4F9B2E4D359";
     fsType = "ntfs";
     options = [
       "ro"
@@ -9,7 +9,7 @@
   };
 
   fileSystems."/mnt/win-d" = {
-    device = "/dev/sda2";
+    device = "/dev/disk/by-uuid/6042859D42857914";
     fsType = "ntfs";
     options = [
       "ro"
