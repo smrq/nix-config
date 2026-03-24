@@ -21,6 +21,10 @@
       url = "git+ssh://git@github.com/smrq/nix-secrets.git?shallow=1";
       flake = false;
     };
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };

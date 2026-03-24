@@ -2,7 +2,9 @@
   imports = [
     ../features/cli.nix
     ../features/desktop.nix
+    ../features/discord.nix
     ../features/fastfetch.nix
+    ../features/firefox
     ../features/fonts.nix
     ../features/git.nix
     ../features/home-manager.nix

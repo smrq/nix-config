@@ -21,6 +21,7 @@
     '';
     plugins = [
       pkgs.hyprlandPlugins.hyprbars
+      pkgs.hyprlandPlugins.hyprexpo
     ];
   };
 }
