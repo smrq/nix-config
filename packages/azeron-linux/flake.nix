@@ -9,8 +9,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       packages.${system} = rec {
-        azeron-linux = pkgs.callPackage ./package.nix { };
-        default = azeron-linux;
+        default = pkgs.callPackage ./package.nix { };
       };
     };
 }

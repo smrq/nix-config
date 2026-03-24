@@ -1,14 +1,14 @@
 {
   inputs,
-  arch,
+  pkgs,
   ...
 }: {
-  imports = [
-    inputs.xpad.nixosModules.xpad
+  boot.kernelModules = [
+    "xpad"
   ];
 
   environment.systemPackages = [
-    inputs.azeron-linux.packages.${arch}.default
+    inputs.azeron-linux.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   services.udev.extraRules = ''
