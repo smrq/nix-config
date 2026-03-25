@@ -6,6 +6,7 @@
     ../features/fastfetch.nix
     ../features/firefox
     ../features/fonts.nix
+    ../features/gaming.nix
     ../features/git.nix
     ../features/home-manager.nix
     ../features/hyprland.nix

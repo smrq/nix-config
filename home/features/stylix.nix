@@ -41,4 +41,6 @@
 
     targets.firefox.profileNames = [ "default" ];
   };
+
+  gtk.gtk4.theme = null;
 }
