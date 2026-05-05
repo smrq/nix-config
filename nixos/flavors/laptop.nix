@@ -13,6 +13,7 @@
 
     ../features/server/openssh.nix
 
+    ../features/audio-production.nix
     ../features/bluetooth.nix
     ../features/desktop.nix
     ../features/dolphin.nix
