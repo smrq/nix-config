@@ -20,13 +20,14 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
+    configType = "hyprlang";
     extraConfig = ''
       source = ./hyprland-extra.conf
       source = ./hyprland-host.conf
     '';
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
-      inputs.hyprtasking.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
+    # plugins = [
+    #   inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+    #   inputs.hyprtasking.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # ];
   };
 }
