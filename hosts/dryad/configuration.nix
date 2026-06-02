@@ -10,6 +10,8 @@
     ../../nixos/flavors/laptop.nix
   ];
 
+  services.fprintd.enable = false;
+
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
