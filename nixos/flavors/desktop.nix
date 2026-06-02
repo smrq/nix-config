@@ -20,6 +20,7 @@
     ../features/dolphin.nix
     ../features/gaming.nix
     ../features/gcr.nix
+    ../features/llm.nix
     ../features/sops.nix
     ../features/stylix.nix
   ];
