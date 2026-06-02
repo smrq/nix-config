@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/8685fd7b";
+      url = "github:hyprwm/Hyprland";
     };
     # hyprland-plugins = {
     #   url = "github:hyprwm/hyprland-plugins";
@@ -58,6 +58,10 @@
     };
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xivlauncher-rb = {
+      url = "github:The1Penguin/nixos-xivlauncher-rb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
