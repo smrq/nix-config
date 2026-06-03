@@ -4,9 +4,11 @@
     ../features/system/system.nix
     ../features/system/users.nix
     
-    ../features/desktop-env/hyprland.nix
-    ../features/desktop-env/noctalia.nix
-    ../features/desktop-env/sddm.nix
+    # ../features/desktop-env/hyprland.nix
+    # ../features/desktop-env/noctalia.nix
+    # ../features/desktop-env/sddm.nix
+
+    ../features/desktop-env/cosmic.nix
 
     ../features/lan/avahi.nix
     ../features/lan/manatree.nix
