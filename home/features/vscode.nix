@@ -11,6 +11,11 @@
       ];
       userSettings = {
         "window.titleBarStyle" = "native";
+        "files.watcherExclude" = {
+          "**/.git/objects/**" = true;
+          "**/.git/subtree-cache/**" = true;
+          "**/node_modules/*/**" = true;
+        };
       };
     };
   };
