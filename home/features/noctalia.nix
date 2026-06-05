@@ -45,7 +45,7 @@
             { id = "NotificationHistory"; }
             { id = "Battery"; }
             { id = "Volume"; }
-            { id = "Brightness"; }
+            # { id = "Brightness"; }
             { id = "ControlCenter"; }
           ];
         };

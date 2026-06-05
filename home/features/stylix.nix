@@ -10,11 +10,11 @@
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     cursor = {
-      name = "Catppuccin-Frappe-Mauve-Cursors";
-      package = pkgs.catppuccin-cursors.frappeMauve;
+      name = "Catppuccin-Mocha-Mauve-Cursors";
+      package = pkgs.catppuccin-cursors.mochaMauve;
       size = 16;
     };
 
@@ -37,6 +37,13 @@
       };
 
       sizes.applications = 10;
+    };
+
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
     };
 
     targets.firefox.profileNames = [ "default" ];

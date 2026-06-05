@@ -1,3 +1,5 @@
+spawn-at-startup "noctalia-shell"
+
 input {
     keyboard {
         numlock
@@ -8,11 +10,11 @@ input {
         natural-scroll
     }
 
-    focus-follows-mouse max-scroll-amount="25%"
+    // focus-follows-mouse max-scroll-amount="25%"
 }
 
 layout {
-    gaps 16
+    gaps 8
     center-focused-column "never"
 
     preset-column-widths {
@@ -24,14 +26,19 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        // off
         width 4
         active-color "#7fc8ff"
         inactive-color "#505050"
     }
-}
 
-spawn-at-startup "waybar"
+    tab-indicator {
+        width 8
+        gap 8
+        place-within-column
+        position "top"
+        gaps-between-tabs 8
+    }
+}
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -47,6 +54,11 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match app-id="ffxiv_dx11.exe"
+    open-fullscreen true
 }
 
 // Enable rounded corners for all windows.
@@ -70,24 +82,23 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Space hotkey-overlay-title="Launcher (fuzzel)" { spawn "fuzzel"; }
-    Mod+Return hotkey-overlay-title="Terminal (kitty)" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Browser (firefox)" { spawn "firefox"; }
-    Mod+E hotkey-overlay-title="File Manager (dolphin)" { spawn "dolphin"; }
-    Super+L hotkey-overlay-title="Lock the Screen" { spawn-sh "dms ipc call lock lock"; }
+    Mod+Space hotkey-overlay-title="Launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+T hotkey-overlay-title="Terminal" { spawn "kitty"; }
+    Mod+B hotkey-overlay-title="Browser" { spawn "firefox"; }
+    Mod+E hotkey-overlay-title="File Manager" { spawn "dolphin"; }
+    Super+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
+    XF86AudioNext         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -197,24 +208,24 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+F1 { focus-workspace 1; }
+    Mod+F2 { focus-workspace 2; }
+    Mod+F3 { focus-workspace 3; }
+    Mod+F4 { focus-workspace 4; }
+    Mod+F5 { focus-workspace 5; }
+    Mod+F6 { focus-workspace 6; }
+    Mod+F7 { focus-workspace 7; }
+    Mod+F8 { focus-workspace 8; }
+    Mod+F9 { focus-workspace 9; }
+    Mod+Ctrl+F1 { move-column-to-workspace 1; }
+    Mod+Ctrl+F2 { move-column-to-workspace 2; }
+    Mod+Ctrl+F3 { move-column-to-workspace 3; }
+    Mod+Ctrl+F4 { move-column-to-workspace 4; }
+    Mod+Ctrl+F5 { move-column-to-workspace 5; }
+    Mod+Ctrl+F6 { move-column-to-workspace 6; }
+    Mod+Ctrl+F7 { move-column-to-workspace 7; }
+    Mod+Ctrl+F8 { move-column-to-workspace 8; }
+    Mod+Ctrl+F9 { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -259,11 +270,11 @@ binds {
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    Mod+Apostrophe { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
     Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+Apostrophe { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
@@ -297,10 +308,5 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
-
-    // Powers off the monitors. To turn them back on, do any input like
-    // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
 }
