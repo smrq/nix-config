@@ -27,20 +27,27 @@
         density = "comfortable";
         position = "bottom";
         widgets = {
+          # https://github.com/noctalia-dev/noctalia-shell/blob/2461f871a602f9a5688b5b01dc19c6309dd0d519/Services/UI/BarWidgetRegistry.qml#L80
           left = [
             { id = "Launcher"; }
             {
               id = "Clock";
               formatHorizontal = "ddd M/dd · h:mm AP";
+              tooltipFormat = "ddd M/dd · h:mm AP";
             }
             { id = "SystemMonitor"; }
-            { id = "ActiveWindow"; }
             { id = "MediaMini"; }
           ];
           center = [
-            { id = "Workspace"; }
+            {
+              id = "Taskbar";
+              colorizeIcons = false;
+              showPinnedApps = false;
+              showTitle = true;
+            }
           ];
           right = [
+            { id = "Workspace"; }
             { id = "Tray"; }
             { id = "NotificationHistory"; }
             { id = "Battery"; }
@@ -51,6 +58,15 @@
         };
       };
 
+      dock = {
+        position = "top";
+        dockType = "attached";
+        showLauncherIcon = true;
+        launcherPosition = "start";
+        groupApps = true;
+        showDockIndicator = true;
+      };
+
       colorSchemes.predefinedScheme = "Catppuccin";
       #   general = {
       #     avatarImage = "/home/drfoobar/.face";
@@ -58,6 +74,8 @@
       #   };
       location = {
         name = "Milwaukee, WI";
+        useFahrenheit = true;
+        use12hourFormat = true;
       };
     };
   };
