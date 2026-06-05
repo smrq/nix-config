@@ -14,6 +14,7 @@
     
     ../features/server/openssh.nix
 
+    ../features/3d-print.nix
     ../features/azeron.nix
     ../features/bluetooth.nix
     ../features/desktop.nix
