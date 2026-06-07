@@ -34,4 +34,8 @@
       ];
     }))
   ];
+
+  environment.sessionVariables = {
+    DALAMUD_HOME = "~/.xlcore1/dalamud/Hooks/dev";
+  };
 }
