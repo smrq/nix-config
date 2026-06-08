@@ -13,17 +13,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    # hyprtasking = {
-    #   url = "github:raybbian/hyprtasking";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
     nix-secrets = {
       url = "git+ssh://git@github.com/smrq/nix-secrets.git?shallow=1";
       flake = false;
