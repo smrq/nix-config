@@ -20,7 +20,7 @@ in
   security.sudo.wheelNeedsPassword = false;
 
   sops.secrets = {
-    "ssh_keys/smrq" = {
+    "ssh_keys/smrq/ed25519" = {
       path = "/home/${username}/.ssh/id_ed25519";
       mode = "0400";
       owner = username;

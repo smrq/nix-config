@@ -71,7 +71,7 @@
       owner = "restic";
     };
     "restic/ssh_key" = {
-      key = "ssh_keys/smrq";
+      key = "ssh_keys/smrq/ed25519";
       path = "/home/restic/.ssh/id_ed25519";
       mode = "0400";
       owner = "restic";

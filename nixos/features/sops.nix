@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  username,
   ...
 }:
 let
@@ -23,6 +24,14 @@ in
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
+    };
+    secrets = {
+      "sops/ssh_key" = {
+        key = "ssh_keys/smrq/age";
+        path = "/home/${username}/.config/sops/age/keys.txt";
+        mode = "0400";
+        owner = username;
+      };
     };
   };
 }
