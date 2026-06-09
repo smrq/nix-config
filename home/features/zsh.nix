@@ -25,6 +25,10 @@
           return 1
         fi
       }
+
+      nixremote() {
+        nixos-rebuild switch --sudo --flake ${config.home.homeDirectory}/git/nix-config#$1 --target-host $1.local
+      }
     '';
     history.size = 10000;
   };
