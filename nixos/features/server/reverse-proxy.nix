@@ -15,6 +15,15 @@
     caddy = {
       enable = true;
       virtualHosts = {
+        "bitwarden.smrq.net" = {
+          extraConfig = ''
+            encode zstd gzip
+            reverse_proxy http://localhost:8222 {
+              header_up X-Real-IP {remote_host}
+            }
+            tls internal
+          '';
+        };
         "budget.smrq.net" = {
           extraConfig = ''
             reverse_proxy http://localhost:5006
@@ -71,6 +80,7 @@
           content = ''
             {
               "settings": [
+                ${domainSettings "bitwarden.smrq.net"}
                 ${domainSettings "budget.smrq.net"},
                 ${domainSettings "media.smrq.net"},
                 ${domainSettings "sub.smrq.net"}

@@ -30,6 +30,7 @@
     backups.honeyb = {
       initialize = true;
       paths = [
+        "/var/local/vaultwarden/backup"
         "/var/lib/actual"
         "/var/lib/gonic"
         "/mnt/faerie/Archive"

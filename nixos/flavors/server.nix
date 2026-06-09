@@ -13,6 +13,7 @@
     ../features/server/jellyfin.nix
     ../features/server/openssh.nix
     ../features/server/reverse-proxy.nix
+    ../features/server/vaultwarden.nix
     ../features/server/vscode-server.nix
     
     ../features/restic.nix
