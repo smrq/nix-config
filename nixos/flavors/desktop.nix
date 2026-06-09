@@ -18,10 +18,10 @@
     ../features/azeron.nix
     ../features/bluetooth.nix
     ../features/desktop.nix
-    ../features/dolphin.nix
     ../features/ffxiv.nix
+    ../features/file-manager.nix
     ../features/gaming.nix
-    ../features/gcr.nix
+    ../features/keyring.nix
     ../features/llm.nix
     ../features/sops.nix
     ../features/stylix.nix

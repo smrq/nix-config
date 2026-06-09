@@ -17,10 +17,10 @@
     ../features/audio-production.nix
     ../features/bluetooth.nix
     ../features/desktop.nix
-    ../features/dolphin.nix
     ../features/ffxiv.nix
+    ../features/file-manager.nix
     ../features/gaming.nix
-    ../features/gcr.nix
+    ../features/keyring.nix
     ../features/sops.nix
     ../features/stylix.nix
   ];
