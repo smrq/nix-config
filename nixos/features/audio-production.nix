@@ -3,7 +3,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    pkgs.reaper
+    reaper
+    yabridge
+    yabridgectl
+    wineWow64Packages.staging
+    wineWow64Packages.yabridge
+    winetricks
   ];
   security.rtkit.enable = true;
 
