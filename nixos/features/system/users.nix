@@ -11,6 +11,7 @@ in
   ];
 
   users.users.${username} = {
+    uid = 1000;
     description = username;
     isNormalUser = true;
     extraGroups = [ "wheel" ];

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }: {
   imports = [
@@ -18,9 +19,13 @@
     options = [
       "x-systemd.automount"
       "noauto"
+      "nounix"
+      "nobrl"
       "x-systemd.idle-timeout=60"
       "x-systemd.device-timeout=5s"
       "x-systemd.mount-timeout=5s"
+      "uid=${builtins.toString config.users.users.${username}.uid}"
+      "rw"
       "credentials=${config.sops.templates."smb-secrets-manatree".path}"
     ];
   };
