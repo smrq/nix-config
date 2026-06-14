@@ -6,6 +6,7 @@
     bitwarden-desktop
     feishin
     spotify
+    yacreader
   ];
 
   # Required to build bitwarden-desktop
