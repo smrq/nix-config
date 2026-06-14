@@ -2,5 +2,10 @@
   inputs,
   ...
 }: {
-  programs.discord.enable = true;
+  imports = [ inputs.nixcord.homeModules.nixcord ];
+
+  programs.nixcord = {
+    enable = true;
+    vesktop.enable = true;
+  };
 }
