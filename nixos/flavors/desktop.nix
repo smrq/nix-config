@@ -19,6 +19,7 @@
     ../features/azeron.nix
     ../features/bluetooth.nix
     ../features/desktop.nix
+    ../features/ereader.nix
     ../features/ffxiv.nix
     ../features/file-manager.nix
     ../features/gaming.nix
