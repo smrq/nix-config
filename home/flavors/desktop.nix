@@ -12,6 +12,8 @@
     ../features/kitty.nix
     ../features/noctalia.nix
     ../features/niri.nix
+    ../features/rclone.nix
+    ../features/sops.nix
     ../features/stylix.nix
     ../features/vscode.nix
     ../features/zsh.nix
