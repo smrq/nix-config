@@ -66,6 +66,7 @@ window-rule {
     match app-id="ffxiv_dx11.exe"
     open-fullscreen true
     open-floating false
+    force-render true
 }
 
 // Enable rounded corners for all windows.
