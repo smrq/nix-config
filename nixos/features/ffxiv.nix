@@ -33,6 +33,7 @@
         })
       ];
     }))
+    inputs.archon-lite.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   environment.sessionVariables = {
