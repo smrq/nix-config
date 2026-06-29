@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "archon-lite": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./packages/archon-lite",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/archon-lite",
+        "type": "path"
+      },
+      "parent": []
+    },
     "azeron-linux": {
       "inputs": {
         "nixpkgs": [
@@ -436,6 +452,7 @@
     },
     "root": {
       "inputs": {
+        "archon-lite": "archon-lite",
         "azeron-linux": "azeron-linux",
         "home-manager": "home-manager",
         "nix-secrets": "nix-secrets",
