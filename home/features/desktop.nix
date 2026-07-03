@@ -6,6 +6,21 @@
     usbutils
   ];
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/json" = "code-2.desktop";
+      "application/x-terminal-emulator" = "kitty.desktop";
+      "application/zip" = "dolphin.desktop";
+      "image/jpeg" = "qimgv.desktop";
+      "image/png" = "qimgv.desktop";
+      "image/gif" = "qimgv.desktop";
+      "text/x-log" = "code.desktop";
+      "x-scheme-handler/discord" = "vesktop.desktop";
+      "x-scheme-handler/terminal" = "kitty.desktop";
+    };
+  };
+
   # https://discourse.nixos.org/t/dolphin-does-not-have-mime-associations/48985/15
   xdg.configFile."menus/applications.menu".text = ''
     <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"

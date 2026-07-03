@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
     feishin
+    qimgv
     spotify
     yacreader
   ];
