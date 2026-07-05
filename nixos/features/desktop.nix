@@ -7,6 +7,7 @@
     feishin
     qimgv
     spotify
+    xed-editor
     yacreader
   ];
 

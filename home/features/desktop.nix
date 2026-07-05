@@ -16,14 +16,14 @@
       "application/x-rar" = "org.kde.ark.desktop";
       "application/x-zip" = "org.kde.ark.desktop";
 
+      "text/plain" = "org.x.editor.desktop";
+      "text/rtf" = "org.x.editor.desktop";
+      "text/x-log" = "code-2.desktop";
+
       "application/json" = "code-2.desktop";
       "application/x-shellscript" = "code-2.desktop";
       "application/xhtml+xml" = "code-2.desktop";
-      "text/english" = "code-2.desktop";
-      "text/fb2+xml" = "code-2.desktop";
       "text/html" = "code-2.desktop";
-      "text/plain" = "code-2.desktop";
-      "text/rtf" = "code-2.desktop";
       "text/x-c" = "code-2.desktop";
       "text/x-c++" = "code-2.desktop";
       "text/x-c++hdr" = "code-2.desktop";
@@ -31,7 +31,6 @@
       "text/x-chdr" = "code-2.desktop";
       "text/x-csrc" = "code-2.desktop";
       "text/x-java" = "code-2.desktop";
-      "text/x-log" = "code-2.desktop";
       "text/x-makefile" = "code-2.desktop";
       "text/x-markdown" = "code-2.desktop";
       "text/x-moc" = "code-2.desktop";
