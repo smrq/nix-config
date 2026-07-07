@@ -6,6 +6,12 @@
     usbutils
   ];
 
+  home.file.".config/kdeglobals".text = ''
+    [General]
+    TerminalApplication=kitty
+    TerminalService=kitty.desktop
+  '';
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {

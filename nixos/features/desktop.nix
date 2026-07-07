@@ -5,6 +5,8 @@
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
     feishin
+    kdePackages.ark
+    kdePackages.dolphin
     qimgv
     spotify
     xed-editor

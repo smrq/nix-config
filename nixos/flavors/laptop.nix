@@ -18,7 +18,6 @@
     ../features/bluetooth.nix
     ../features/desktop.nix
     ../features/ffxiv.nix
-    ../features/file-manager.nix
     ../features/gaming.nix
     ../features/keyring.nix
     ../features/sops.nix
