@@ -7,6 +7,9 @@
     feishin
     kdePackages.ark
     kdePackages.dolphin
+    kdePackages.kio
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
     qimgv
     spotify
     xed-editor
@@ -26,4 +29,6 @@
       cups-browsed
     ];
   };
+
+  services.udev.packages = [ pkgs.libmtp.out ];
 }
