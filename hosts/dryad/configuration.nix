@@ -17,6 +17,16 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # Lower minimum brightness
+  # https://community.frame.work/t/solved-even-lower-screen-brightness/25711/130#p-331338-quick-reference-1
+  boot.kernelParams = [ "amdgpu.dcdebugmask=0x40000" ];
+  boot.kernelPatches = [
+    {
+      name = "fw16-drm-panel-backlight-quirks";
+      patch = ./drm_panel_backlight_quirks.patch;
+    }
+  ];
+
   networking.hostName = hostname;
 
   # This value determines the NixOS release from which the default

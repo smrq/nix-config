@@ -1,0 +1,22 @@
+--- a/drivers/gpu/drm/drm_panel_backlight_quirks.c
++++ b/drivers/gpu/drm/drm_panel_backlight_quirks.c
+@@ -44,6 +44,14 @@
+ 		.ident.panel_id = drm_edid_encode_panel_id('B', 'O', 'E', 0x0cb4),
+ 		.ident.name = "NE135A1M-NY1",
+ 		.quirk = { .min_brightness = 1, },
++	},
++	/* 16 inch panel */
++	{
++		.dmi_match.field = DMI_BOARD_VENDOR,
++		.dmi_match.value = "Framework",
++		.ident.panel_id = drm_edid_encode_panel_id('B', 'O', 'E', 0x0bc9),
++		.ident.name = "NE160QDM-NZ6",
++		.quirk = { .min_brightness = 1, },
+ 	},
+ 	/* Steam Deck models */
+ 	{
+
+
+ static bool drm_panel_min_backlight_quirk_matches(const struct drm_panel_min_backlight_quirk *quirk,
+--
+2.48.1
