@@ -24,6 +24,7 @@
     ../features/gaming.nix
     ../features/keyring.nix
     ../features/llm.nix
+    ../features/nix-ld.nix
     ../features/sops.nix
     ../features/stylix.nix
   ];

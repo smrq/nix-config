@@ -20,6 +20,7 @@
     ../features/ffxiv.nix
     ../features/gaming.nix
     ../features/keyring.nix
+    ../features/nix-ld.nix
     ../features/sops.nix
     ../features/stylix.nix
   ];
