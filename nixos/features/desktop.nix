@@ -10,6 +10,7 @@
     kdePackages.kio
     kdePackages.kio-fuse
     kdePackages.kio-extras
+    pavucontrol
     qimgv
     spotify
     xed-editor
