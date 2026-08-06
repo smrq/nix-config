@@ -33,6 +33,7 @@
         })
       ];
     }))
+    inputs.archon.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.archon-lite.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 

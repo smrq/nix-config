@@ -4,7 +4,7 @@ let
   version = "1.5.6";
   src = fetchurl {
     url = "https://github.com/renatoi/azeron-linux/releases/download/v${version}/azeron-software-${version}-x86_64.AppImage";
-    hash = "sha256-85RJJ8eFqTVjl4f7rd3ctM+cBUSoGDLFrftpRFgjcaQ=";
+    hash = "sha256-Tbak5g+fCVFvKaUT9k4I+2ym+2Z7qKtkGaygT9HudTk=";
   };
 in
 appimageTools.wrapType2 {

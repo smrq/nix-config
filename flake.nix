@@ -5,6 +5,10 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    archon = {
+      url = "./packages/archon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     archon-lite = {
       url = "./packages/archon-lite";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,14 +35,9 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qs.follows = "noctalia-qs";
-    };
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     opencode = {
-      url = "github:anomalyco/opencode/v1.14.25";
+      url = "github:anomalyco/opencode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
@@ -51,7 +50,6 @@
     };
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     xivlauncher-rb = {
       url = "github:The1Penguin/nixos-xivlauncher-rb";

@@ -6,16 +6,16 @@
 }:
 
 let
-  pname = "archon-lite";
+  pname = "archon";
   version = "9.5.0";
 
   src = fetchurl {
-    url = "https://github.com/RPGLogs/Uploaders-archon-lite/releases/download/v${version}/archon-lite-v${version}.AppImage";
-    hash = "sha256-ZuALgVtqsYtvnSq8hkJL4A+i4UaEpk+2L3bpSEXrhRM=";
+    url = "https://github.com/RPGLogs/Uploaders-archon/releases/download/v${version}/archon-v${version}.AppImage";
+    hash = "sha256-5QaxHdRPzRmvDghbCDGdVF7yKwOkyYmrFnbqj+VvOBA=";
   };
 
   desktopItem = makeDesktopItem {
-    desktopName = "Archon Lite";
+    desktopName = "Archon";
     name = pname;
     exec = pname;
     icon = pname;
@@ -36,7 +36,7 @@ appimageTools.wrapType2 {
   '';
 
   meta = {
-    description = "Archon Lite";
+    description = "Archon";
     homepage = "https://www.archon.gg";
     downloadPage = "https://www.archon.gg/download";
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
