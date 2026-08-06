@@ -1,0 +1,30 @@
+[bar.default]
+position = "bottom"
+
+margin_ends = 0
+widget_spacing = 16
+
+start = ["launcher", "clock", "sysmon", "media"]
+center = ["taskbar"]
+end = ["workspaces", "tray", "notifications", "battery", "volume", "brightness", "control-center"]
+
+[location]
+auto_locate = true
+address = "Milwaukee, WI"
+
+[nightlight]
+enabled = true
+
+[theme]
+mode = "dark"
+builtin = "Catppuccin"
+
+[weather]
+unit = "imperial"
+
+[widget.clock]
+format = "%a %m/%d · %I:%M %p"
+
+[widget.taskbar]
+only_active_workspace = true
+show_window_title = true

@@ -47,5 +47,7 @@
     };
 
     targets.firefox.profileNames = [ "default" ];
+
+    targets.noctalia.enable = false;
   };
 }
