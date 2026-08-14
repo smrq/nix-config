@@ -13,6 +13,7 @@
     pavucontrol
     qimgv
     spotify
+    vlc
     xed-editor
     yacreader
   ];
