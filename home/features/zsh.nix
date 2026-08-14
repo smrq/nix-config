@@ -29,6 +29,10 @@
       nixremote() {
         nixos-rebuild switch --sudo --flake ${config.home.homeDirectory}/git/nix-config#$1 --target-host $1.local
       }
+
+      bwunlock() {
+        export BW_SESSION="$(bw unlock --raw)"
+      }
     '';
     history.size = 10000;
   };

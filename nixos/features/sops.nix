@@ -32,6 +32,9 @@ in
         mode = "0400";
         owner = username;
       };
+      "vaultwarden/client_id" = {};
+      "vaultwarden/client_secret" = {};
+      "vaultwarden/password" = {};
     };
   };
 }
