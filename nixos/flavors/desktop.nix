@@ -25,6 +25,7 @@
     ../features/keyring.nix
     ../features/llm.nix
     ../features/nix-ld.nix
+    ../features/obs.nix
     ../features/sops.nix
     ../features/stylix.nix
   ];
