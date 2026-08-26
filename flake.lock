@@ -32,22 +32,6 @@
       },
       "parent": []
     },
-    "azeron-linux": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "./packages/azeron-linux",
-        "type": "path"
-      },
-      "original": {
-        "path": "./packages/azeron-linux",
-        "type": "path"
-      },
-      "parent": []
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -447,7 +431,6 @@
       "inputs": {
         "archon": "archon",
         "archon-lite": "archon-lite",
-        "azeron-linux": "azeron-linux",
         "home-manager": "home-manager",
         "nix-secrets": "nix-secrets",
         "nixcord": "nixcord",

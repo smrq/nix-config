@@ -13,10 +13,10 @@
       url = "./packages/archon-lite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    azeron-linux = {
-      url = "./packages/azeron-linux";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # azeron-linux = {
+    #   url = "./packages/azeron-linux";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

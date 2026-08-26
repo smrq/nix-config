@@ -1,15 +1,50 @@
 {
-  inputs,
   pkgs,
+  lib,
   ...
-}: {
-  boot.kernelModules = [
-    "xpad"
-  ];
+}: let
+  azeron-app = let
+    version = "2.0.2";
+  in pkgs.appimageTools.wrapType2 {
+    pname = "azeron";
+    inherit version;
+    src = pkgs.fetchurl {
+      url = "https://azeron-software-public.s3.us-east-1.amazonaws.com/live/${version}/Azeron-Software-v${version}.AppImage";
+      hash = "sha256-D9d5Og3uIKmCs3Tw9hRozbjJ8oAhBR+Vv0oRWchoHh4=";
+    };
 
-  environment.systemPackages = [
-    inputs.azeron-linux.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+    extraBwrapArgs = [
+      "--dev-bind /dev /dev"
+      "--bind /run/udev /run/udev"
+    ];
+
+    meta = {
+      description = "Azeron Software";
+      license = lib.licenses.unfree;
+      homepage = "https://azeron.com";
+      downloadPage = "https://azeron.com/pages/software";
+      sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
+      platforms = [ "x86_64-linux" ];
+    };
+  };
+
+  azeron-desktop = pkgs.makeDesktopItem {
+    name = "azeron";
+    exec = "azeron";
+    icon = "azeron";
+    desktopName = "Azeron Software";
+    genericName = "Keypad Configuration";
+    categories = ["Utility"];
+  };
+
+  azeron-combined = pkgs.symlinkJoin {
+    name = "azeron-combined";
+    paths = [azeron-app azeron-desktop];
+  };
+in {
+  boot.kernelModules = [ "xpad" ];
+
+  environment.systemPackages = [ azeron-combined ];
 
   services.udev.extraRules = ''
     # Azeron keypads - HID interface (vendorId 0x16D0 = 5840)
