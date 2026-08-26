@@ -9,6 +9,7 @@
     ../features/gaming.nix
     ../features/git.nix
     ../features/home-manager.nix
+    ../features/input-remapper.nix
     ../features/kitty.nix
     ../features/noctalia.nix
     ../features/niri.nix

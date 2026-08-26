@@ -1,10 +1,15 @@
 {
+  config,
   pkgs,
   ...
 }: {
   home.packages = with pkgs; [
     usbutils
   ];
+
+  home.file.".config/input-remapper-2" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/git/nix-config/dots/input-remapper";
+  };
 
   home.file.".config/kdeglobals".text = ''
     [General]

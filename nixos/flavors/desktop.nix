@@ -22,6 +22,7 @@
     ../features/ereader.nix
     ../features/ffxiv.nix
     ../features/gaming.nix
+    ../features/input-remapper.nix
     ../features/keyring.nix
     ../features/llm.nix
     ../features/nix-ld.nix
