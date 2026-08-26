@@ -13,6 +13,7 @@
     pavucontrol
     qimgv
     spotify
+    unrar
     vlc
     xed-editor
     yacreader
