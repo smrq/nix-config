@@ -29,5 +29,6 @@
     ../features/obs.nix
     ../features/sops.nix
     ../features/stylix.nix
+    ../features/waydroid.nix
   ];
 }
