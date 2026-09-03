@@ -13,6 +13,7 @@
     ../features/kitty.nix
     ../features/noctalia.nix
     ../features/niri.nix
+    ../features/obsidian.nix
     ../features/rclone.nix
     ../features/sops.nix
     ../features/stylix.nix
