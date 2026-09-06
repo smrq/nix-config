@@ -10,7 +10,9 @@ input {
         natural-scroll
     }
 
-    // focus-follows-mouse max-scroll-amount="25%"
+    tablet {
+        map-to-output "DP-2"
+    }
 }
 
 layout {
