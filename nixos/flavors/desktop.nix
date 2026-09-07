@@ -30,6 +30,7 @@
     ../features/obs.nix
     ../features/sops.nix
     ../features/stylix.nix
+    ../features/vm.nix
     ../features/waydroid.nix
   ];
 }
