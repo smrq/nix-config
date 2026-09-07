@@ -111,18 +111,6 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 11,
-                "origin_hash": "568c34bdfe142eec1645707b9a84da9e"
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "KEY_KP0",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 1,
                 "code": 12,
                 "origin_hash": "568c34bdfe142eec1645707b9a84da9e"
             }
@@ -141,6 +129,42 @@
         ],
         "target_uinput": "keyboard",
         "output_symbol": "KEY_KPASTERISK",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 11,
+                "origin_hash": "568c34bdfe142eec1645707b9a84da9e"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_KP0",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 109,
+                "origin_hash": "568c34bdfe142eec1645707b9a84da9e"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_LEFTSHIFT + KEY_TAB",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 104,
+                "origin_hash": "568c34bdfe142eec1645707b9a84da9e"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_TAB",
         "mapping_type": "key_macro"
     }
 ]
