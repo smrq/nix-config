@@ -4,8 +4,19 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    lutris
+    (lutris.override {
+      extraLibraries =
+        pkgs: with pkgs; [
+          libadwaita
+          gtk4
+        ];
+    })
   ];
+
+  programs.gamescope = {
+    enable = true;
+    # capSysNice = true;
+  };
 
   programs.steam = {
     enable = true;
