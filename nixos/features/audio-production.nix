@@ -1,7 +1,13 @@
 {
+  inputs,
   pkgs,
+  username,
   ...
 }: {
+  imports = [
+    inputs.musnix.nixosModules.musnix
+  ];
+
   environment.systemPackages = with pkgs; [
     reaper
     yabridge
@@ -10,7 +16,10 @@
     wineWow64Packages.yabridge
     winetricks
   ];
+
   security.rtkit.enable = true;
+
+  users.users.${username}.extraGroups = [ "audio" ];
 
   # https://wiki.nixos.org/wiki/Electric_guitar_interface_setup
   services.pipewire = {

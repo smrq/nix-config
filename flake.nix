@@ -5,6 +5,10 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    ableton-linux = {
+      url = "github:shibco/ableton-linux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     archon = {
       url = "./packages/archon";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,12 +17,12 @@
       url = "./packages/archon-lite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # azeron-linux = {
-    #   url = "./packages/azeron-linux";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    musnix = {
+      url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-secrets = {
