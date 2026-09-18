@@ -13,6 +13,7 @@
     pavucontrol
     qimgv
     spotify
+    transmission_4-qt
     unrar
     vlc
     xed-editor
