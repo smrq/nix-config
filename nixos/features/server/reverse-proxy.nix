@@ -30,6 +30,12 @@
             tls internal
           '';
         };
+        "koito.smrq.net" = {
+          extraConfig = ''
+            reverse_proxy http://localhost:4110
+            tls internal
+          '';
+        };
         "media.smrq.net" = {
           extraConfig = ''
             reverse_proxy http://localhost:8096
@@ -80,8 +86,9 @@
           content = ''
             {
               "settings": [
-                ${domainSettings "bitwarden.smrq.net"}
+                ${domainSettings "bitwarden.smrq.net"},
                 ${domainSettings "budget.smrq.net"},
+                ${domainSettings "koito.smrq.net"},
                 ${domainSettings "media.smrq.net"},
                 ${domainSettings "sub.smrq.net"}
               ]

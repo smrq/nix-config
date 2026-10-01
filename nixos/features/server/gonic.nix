@@ -1,4 +1,9 @@
 {
+  # Manual config:
+  # Scrobbling
+  # - Server address: http://host.containers.internal:9078
+  # - Token: copy from SOPS
+
   imports = [
     ../podman.nix
     ../lan/manatree.nix

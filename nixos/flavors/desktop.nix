@@ -27,6 +27,7 @@
     ../features/input-remapper.nix
     ../features/keyring.nix
     ../features/llm.nix
+    ../features/music.nix
     ../features/nix-ld.nix
     ../features/obs.nix
     ../features/sops.nix

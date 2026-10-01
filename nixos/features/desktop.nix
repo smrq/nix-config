@@ -4,7 +4,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
-    feishin
     kdePackages.ark
     kdePackages.dolphin
     kdePackages.kio
@@ -12,7 +11,6 @@
     kdePackages.kio-extras
     pavucontrol
     qimgv
-    spotify
     transmission_4-qt
     unrar
     vlc

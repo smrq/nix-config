@@ -11,6 +11,8 @@
     ../features/server/actual-budget.nix
     ../features/server/gonic.nix
     ../features/server/jellyfin.nix
+    ../features/server/koito.nix
+    ../features/server/multi-scrobbler.nix
     ../features/server/openssh.nix
     ../features/server/reverse-proxy.nix
     ../features/server/vaultwarden.nix
