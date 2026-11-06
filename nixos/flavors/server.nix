@@ -9,6 +9,7 @@
     ../features/lan/wifi.nix
 
     ../features/server/actual-budget.nix
+    ../features/server/dashboard.nix
     ../features/server/gonic.nix
     ../features/server/jellyfin.nix
     ../features/server/koito.nix
