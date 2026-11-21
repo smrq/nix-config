@@ -24,5 +24,6 @@
     ../features/nix-ld.nix
     ../features/sops.nix
     ../features/stylix.nix
+    ../features/syncthing.nix
   ];
 }

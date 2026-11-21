@@ -32,6 +32,7 @@
     ../features/obs.nix
     ../features/sops.nix
     ../features/stylix.nix
+    ../features/syncthing.nix
     ../features/vm.nix
     ../features/waydroid.nix
   ];
