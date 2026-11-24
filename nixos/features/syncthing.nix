@@ -22,6 +22,15 @@
     settings = {
       gui.user = "smrq";
       devices = {
+        "dryad" = {
+          id = "DHJCM34-YNLWELG-EAKSVVD-AXLQIMR-VUM7TZZ-P65PYUN-6PIQZUD-WNIYMA4";
+        };
+        "honeyb" = {
+          id = "MZIFULL-N6RSWIY-TCPG27G-OP4FH62-DU7ZEMX-LPM7U5N-I44ADGH-CWT6VQT";
+        };
+        "pixel-xl" = {
+          id = "L4RYEB3-XSTOJDO-I6HJY4D-OYUY32I-X3HLWGR-EJQPJHI-XALIMNW-XNT5OQG";
+        };
         "salamando" = {
           id = "25LM7FZ-QSSQKWU-RPKNUC6-BJN7VYQ-PLERMA7-FAZQCXB-BGSZCXW-O6WXPQ3";
         };
@@ -33,6 +42,9 @@
         "Obsidian" = {
           path = "/home/${username}/Documents/Obsidian";
           devices = [
+            "dryad"
+            "honeyb"
+            "salamando"
             "unit-10"
           ];
         };

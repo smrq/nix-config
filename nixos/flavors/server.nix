@@ -22,5 +22,6 @@
     ../features/restic.nix
     ../features/sops.nix
     ../features/ssh-agent.nix
+    ../features/syncthing.nix
   ];
 }
